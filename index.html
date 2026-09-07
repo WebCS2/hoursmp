@@ -171,7 +171,6 @@
             <input id="serverIP" value="hoursmp.aternos.me" readonly>
             <button onclick="copyIP()">Copy</button>
         </div>
-        <p id="statusText" style="margin-top:10px;">Checking server status...</p>
     </div>
 
     <div class="section">
@@ -203,19 +202,6 @@
         navigator.clipboard.writeText("hoursmp.aternos.me");
         alert("Copied!");
     }
-
-    // Server status check
-    async function checkStatus() {
-        try {
-            let res = await fetch("https://api.mcsrvstat.us/2/hoursmp.aternos.me");
-            let data = await res.json();
-            document.getElementById("statusText").innerText =
-                data.online ? "Server is ONLINE" : "Server is OFFLINE";
-        } catch {
-            document.getElementById("statusText").innerText = "Unable to check status.";
-        }
-    }
-    checkStatus();
 
     // Rank menu system
     function openRankMenu() {
