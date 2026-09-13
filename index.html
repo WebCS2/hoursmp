@@ -26,6 +26,7 @@
             background-color: var(--dark-bg);
             color: var(--text-main);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -108,8 +109,11 @@
             transform: translateY(-2px);
         }
 
-        .features {
+        section {
             padding: 100px 8%;
+        }
+
+        .alt-bg {
             background: #0f172a;
         }
 
@@ -151,10 +155,43 @@
             color: var(--primary);
         }
 
-        .card p {
+        .card p, .card ul {
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .card ul {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
         }
 
         footer {
@@ -166,7 +203,6 @@
             font-size: 0.9rem;
         }
 
-        /* Toast notification for copying IP */
         #toast {
             visibility: hidden;
             background-color: var(--primary);
@@ -206,32 +242,73 @@
         <nav>
             <a href="#home">Home</a>
             <a href="#features">Features</a>
-            <a href="#store">Store</a>
+            <a href="#shop">Store</a>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <h1>Welcome to BREEZY SMP</h1>
-        <p>Experience a smooth, custom-tailored survival multiplayer environment featuring unique queue systems, balanced economies, and clean styling.</p>
+        <p>An elite custom survival experience featuring automated selling, bounty boards, unique currency shards, and custom match systems.</p>
         <div class="ip-box" onclick="copyIP()">
             <span>🎮 Click to Copy IP: breezy.aternos.me</span>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <section class="alt-bg" id="features">
         <h2 class="section-title">Server <span>Features</span></h2>
         <div class="grid">
             <div class="card">
-                <h3>⚡ RTP & Duel Queue</h3>
-                <p>Use <code>/rtp</code> for solo exploration or queue up with <code>/rtpqueue</code> to teleport together with another player into the wild for an instant matchup!</p>
+                <h3>💰 Sell System</h3>
+                <p>Clean up your inventory easily. Use <code>/sell</code> to instantly sell valuables like Diamonds, Gold, Iron, and Emeralds for cash rewards.</p>
             </div>
             <div class="card">
-                <h3>🛒 Bone Meal Shop</h3>
-                <p>Need massive resources? Access our custom GUI market via <code>/buybone</code> to instantly acquire 63 stacks of bone meal for your projects.</p>
+                <h3>🎯 Bounty Board</h3>
+                <p>Put a price on anyone's head using <code>/bounty &lt;player&gt; &lt;amount&gt;</code>. Eliminate targets in combat to claim the full reward purse!</p>
+            </div>
+            <div class="card">
+                <h3>💎 Shards System</h3>
+                <p>Collect rare server shards using <code>/shards</code> to unlock exclusive perks, trading power, and high-tier progression paths.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ RTP & Duel Queue</h3>
+                <p>Explore safely with <code>/rtp</code> or join the <code>/rtpqueue</code> to automatically match up with another player and teleport together for quick action.</p>
             </div>
             <div class="card">
                 <h3>🌙 Persistent Night Vision</h3>
-                <p>Never deal with darkness again. Toggle fullbright anywhere, anytime using <code>/nightvision</code>, which persists safely through deaths and rejoins.</p>
+                <p>Never stumble in the dark again. Toggle fullbright anywhere using <code>/nightvision</code>, which persists safely through server rejoins and deaths.</p>
+            </div>
+            <div class="card">
+                <h3>🛒 Bone Meal Market</h3>
+                <p>Massive farm builder? Access the quick GUI shop via <code>/buybone</code> to pick up 63 stacks of bone meal instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop">
+        <h2 class="section-title">Server <span>Store</span></h2>
+        <div class="grid" style="max-width: 800px; margin: 0 auto;">
+            <div class="card" style="text-align: center;">
+                <h3>🌟 VIP Rank</h3>
+                <div class="price-tag">$5.00 <span style="font-size: 1rem; color: var(--primary);">(SOON)</span></div>
+                <p>Unlock elite status on BREEZY SMP.</p>
+                <ul>
+                    <li>✓ Custom Chat Tag & Formatting</li>
+                    <li>✓ Exclusive VIP Kit Access</li>
+                    <li>✓ Priority Queue Benefits</li>
+                </ul>
+                <a href="#shop" class="btn" onclick="alert('VIP Rank will be available soon!')">Coming Soon</a>
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <h3>🚀 Discord Booster</h3>
+                <div class="price-tag">Free / Boost</div>
+                <p>Support our official community space!</p>
+                <ul>
+                    <li>✓ Exclusive Discord Role</li>
+                    <li>✓ Special In-Game Booster Kit</li>
+                    <li>✓ Special Recognition</li>
+                </ul>
+                <a href="https://discord.gg/yourinvite" target="_blank" class="btn">Boost Discord</a>
             </div>
         </div>
     </section>
